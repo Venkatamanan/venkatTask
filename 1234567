@@ -1,0 +1,59 @@
+"I have changed the code"
+"please refer the code for your reference"
+
+
+
+
+
+from matplotlib import pyplot as plt
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import os
+os.getcwd()
+df = pd.read_csv("instagram.csv",sep='\t')
+df.head()
+df.describe()
+df['Posts'].hist(bins=70)
+df.apply(lambda x:sum(x.isnull()))
+df.apply(lambda x:sum(x.isnull()),axis=0)
+plt.hist(df['Posts'],color='green')
+plt.show()
+type(np.arange(10))
+x = np.arange(1,10)
+y = x+1
+plt.plot(x,y,color = 'purple')
+x = np.arange(1,5)
+y = 5+x
+plt.plot(x,y,color = 'green')
+plt.title('range')
+plt.xlabel('venkat')
+plt.ylabel('ramana')
+plt.show()
+x = np.arange(10,20)
+y1 = x+10
+y2 = x+5
+plt.subplot(1,2,1)
+plt.plot(x,y1)
+plt.subplot(1,2,2)
+plt.plot(x,y2)
+plt.show()
+motorbike = {'hunter':5,'interceptor':4,'meteror':8,'classic 350':3}
+RE = motorbike.keys()
+stock = motorbike.values()
+print(RE,stock)
+plt.bar(RE,stock,color='green')
+plt.show()
+plt.bar(RE,stock,color='yellow')
+plt.title("ROYAL ENFIELD",color='red')
+plt.xlabel("BIKE MODEL")
+plt.ylabel("BIKE STOCKS")
+plt.legend(['RE','stock'])
+plt.show()
+plt.scatter(RE,stock,color='brown')
+plt.title("ROYAL ENFIELD")
+plt.xlabel("BIKE MODEL")
+plt.ylabel("BIKE STOCKS")
+plt.show()
+sns.jointplot(x='Posts',y='Avg. Likes',data = df,kind='reg')
+sns.pairplot(df)
